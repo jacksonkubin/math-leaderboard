@@ -32,12 +32,12 @@ root.configure(background='navy')
 
 
 # This sets up the UI
-qui = QuestionUI.QuestionUI(root)
 
 # Ask randomized questions
 random.shuffle(tqs)
 for x in range(0, 4):
-    qui.AskQuestion(tqs[x])
+    qui = QuestionUI.QuestionUI(root)
+    print(qui.AskQuestion(tqs[x]))
 
 # root.pack(fill='both')
 
@@ -47,4 +47,4 @@ root.grid_rowconfigure(7, weight=1)
 root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(6, weight=1)
 
-root.mainloop()
+# root.mainloop()
