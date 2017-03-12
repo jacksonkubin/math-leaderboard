@@ -39,10 +39,15 @@ class QuestionUI(Toplevel):
         self.b_D.grid(row=4, column=4)
         self.b_S.grid(row=5, column=3)
 
-        self.b_W.bind("w", self.Key_W)
-        self.b_A.bind("a", self.Key_A)
-        self.b_D.bind("d", self.Key_D)
-        self.b_S.bind("s", self.Key_S)
+        self.bind("w", self.Key_W)
+        self.bind("a", self.Key_A)
+        self.bind("d", self.Key_D)
+        self.bind("s", self.Key_S)
+
+        self.bind("W", self.Key_W)
+        self.bind("A", self.Key_A)
+        self.bind("D", self.Key_D)
+        self.bind("S", self.Key_S)
 
     def Key_W(self, event=None):
             self.TestAnswer(self.a[0])
