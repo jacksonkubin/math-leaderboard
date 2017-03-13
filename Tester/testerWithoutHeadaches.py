@@ -1,7 +1,7 @@
 import csv
 
 import easygui
-import TestQuestion
+import test_question
 import random
 
 #This opens up the file with our questions
@@ -10,12 +10,13 @@ with open('Questions.txt') as file:
     lines = list(reader)
     tqs = []
     for line in lines:
-        tqs.append(TestQuestion.TestQuestion(line))
+        tqs.append(test_question.TestQuestion(line))
 
-def AskQuestion(tq):
+
+def ask_question(tq):
     a = tq.possibles
     random.shuffle(a)
-    q = easygui.buttonbox(tq.question, "?", choices=(a[0], a[1], a[2], a[3]))
+    q = easygui.buttonbox(tq.question, "?", choices=[a[0], a[1], a[2], a[3]])
     answer = tq.answer
     if (q == answer):
         result = 1
@@ -27,4 +28,4 @@ def AskQuestion(tq):
 
 random.shuffle(tqs)
 for x in range(0, 4):
-    print(AskQuestion(tqs[x]))
+    print(ask_question(tqs[x]))
