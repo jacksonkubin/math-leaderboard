@@ -26,6 +26,8 @@ def ask_question(tq):
         easygui.msgbox("Try again!")
     return result
 
+totRes = 0
 random.shuffle(tqs)
 for x in range(0, 4):
     print(ask_question(tqs[x]))
+totRes = totRes + ask_question(tqs[x])
