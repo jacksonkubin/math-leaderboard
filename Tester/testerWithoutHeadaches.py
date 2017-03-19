@@ -28,6 +28,6 @@ def ask_question(tq):
 
 totRes = 0
 random.shuffle(tqs)
-for x in range(0, 4):
-    print(ask_question(tqs[x]))
-totRes = totRes + ask_question(tqs[x])
+for x in range(0, 9):
+    totRes = totRes + ask_question(tqs[x])
+print(totRes)
