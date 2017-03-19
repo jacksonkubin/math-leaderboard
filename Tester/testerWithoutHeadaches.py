@@ -29,6 +29,6 @@ def ask_question(tq):
 
 totRes = 0
 random.shuffle(tqs)
-for x in range(0, 9):
+for x in range(4):
     totRes += ask_question(tqs[x])
-print(totRes)
+print("Your score: " + str(totRes))
