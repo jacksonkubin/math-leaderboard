@@ -1087,6 +1087,7 @@ def multchoicebox(msg="Pick as many items as you like."
 def choicebox(msg="Pick something."
               , title=" "
               , choices=()):
+    # type: (object, object, object) -> object
     """
     Present the user with a list of choices.
     return the choice that he selects.
