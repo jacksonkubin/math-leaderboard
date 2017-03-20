@@ -1,8 +1,13 @@
 import csv
-
+import Results
 import easygui
 import test_question
 import random
+
+
+
+
+
 
 # This opens up the file with our questions
 with open('Questions.txt') as file:
@@ -37,9 +42,21 @@ def ask_question(tq):
 
 
 team = easygui.choicebox("Pick your team", "Pick Team", teams)
+while not team in teams:
+    team = easygui.choicebox("Pick your team", "Pick Team", teams)
+
+posQuestAmount = ("01", "05", "10")
+demQuestions = easygui.choicebox("How many questions?", "Questions", posQuestAmount)
+while not demQuestions in posQuestAmount:
+    demQuestions = easygui.choicebox("How many questions?", "Questions", posQuestAmount)
 
 totRes = 0
 random.shuffle(tqs)
-for x in range(4):
+for x in range(int(demQuestions)):
     totRes += ask_question(tqs[x])
-print("Your (" + team + ") score: " + str(totRes))
+print("Your " + team + " team score: " + str(totRes))
+
+with open('scores.txt', 'wb') as csvfile:
+    writer = csv.writer(csvfile, delimiter=' ',
+                        quotechar='^', quoting=csv.QUOTE_MINIMAL)
+    writer.writerow([totRes, team])
