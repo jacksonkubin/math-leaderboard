@@ -80,10 +80,12 @@ def ask_question(tq):
 
 ms = ['Leader board', 'Play', 'Quit']
 mainMenu = ""
-while not mainMenu in ms:
-    mainMenu = easygui.choicebox('Welcome! We are very excited to have you here to play the Acolympics!',
-                                 'Pick what to do', ms)
-if mainMenu == 'Leader board':
-    show_leader_board()
-elif mainMenu == 'Play':
-    show_play()
+while mainMenu != "Quit":
+    mainMenu = ""
+    while not mainMenu in ms:
+        mainMenu = easygui.choicebox('Welcome! We are very excited to have you here to play the Acolympics!',
+                                     'Pick what to do', ms)
+    if mainMenu == 'Leader board':
+        show_leader_board()
+    elif mainMenu == 'Play':
+        show_play()
